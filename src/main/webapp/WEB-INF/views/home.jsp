@@ -2,13 +2,14 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Spring MVC 4 & Hibernate 5 | ITSLV</title>
 </head>
 <body>
 <h1>
-	Hello world!  ITSLV
+	Spring MVC 4 & Hibernate 5 | ITSLV
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<a href="actividadesuniversitarias">Actividades Universitarias</a><br/>
 </body>
 </html>
