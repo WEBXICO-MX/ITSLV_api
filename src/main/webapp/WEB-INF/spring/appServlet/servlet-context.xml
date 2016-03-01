@@ -59,7 +59,14 @@
 		<beans:property name="actividadUniversitariaDAO" ref="actividadUniversitariaDAO"></beans:property>
 	</beans:bean>
 
-
+	<beans:bean id="usuarioDAO" class="mx.edu.itslv.spring.dao.UsuarioDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="usuarioService"
+		class="mx.edu.itslv.spring.service.UsuarioServiceImpl">
+		<beans:property name="usuarioDAO" ref="usuarioDAO"></beans:property>
+	</beans:bean>
 
 	<context:component-scan base-package="mx.edu.itslv.spring" />
 

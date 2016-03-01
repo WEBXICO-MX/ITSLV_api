@@ -11,5 +11,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <a href="actividadesuniversitarias">Actividades Universitarias</a><br/>
+<a href="usuarios">Usuarios</a><br/>
 </body>
 </html>
