@@ -13,5 +13,6 @@
 <a href="actividadesuniversitarias">Actividades Universitarias</a><br/>
 <a href="usuarios">Usuarios</a><br/>
 <a href="servicios">Servicios</a><br/>
+<a href="areas">Áreas</a><br/>
 </body>
 </html>
