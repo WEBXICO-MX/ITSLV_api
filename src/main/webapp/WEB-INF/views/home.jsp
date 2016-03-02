@@ -14,5 +14,6 @@
 <a href="usuarios">Usuarios</a><br/>
 <a href="servicios">Servicios</a><br/>
 <a href="areas">Áreas</a><br/>
+<a href="contactos">Contactos</a><br/>
 </body>
 </html>

@@ -67,7 +67,7 @@
 		class="mx.edu.itslv.spring.service.UsuarioServiceImpl">
 		<beans:property name="usuarioDAO" ref="usuarioDAO"></beans:property>
 	</beans:bean>
-	
+
 	<beans:bean id="servicioDAO" class="mx.edu.itslv.spring.dao.ServicioDAOImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate5AnnotatedSessionFactory" />
@@ -76,14 +76,22 @@
 		class="mx.edu.itslv.spring.service.ServicioServiceImpl">
 		<beans:property name="servicioDAO" ref="servicioDAO"></beans:property>
 	</beans:bean>
-	
+
 	<beans:bean id="areaDAO" class="mx.edu.itslv.spring.dao.AreaDAOImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate5AnnotatedSessionFactory" />
 	</beans:bean>
-	<beans:bean id="areaService"
-		class="mx.edu.itslv.spring.service.AreaServiceImpl">
+	<beans:bean id="areaService" class="mx.edu.itslv.spring.service.AreaServiceImpl">
 		<beans:property name="areaDAO" ref="areaDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="contactoDAO" class="mx.edu.itslv.spring.dao.ContactoDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="contactoService"
+		class="mx.edu.itslv.spring.service.ContactoServiceImpl">
+		<beans:property name="contactoDAO" ref="contactoDAO"></beans:property>
 	</beans:bean>
 
 	<context:component-scan base-package="mx.edu.itslv.spring" />
