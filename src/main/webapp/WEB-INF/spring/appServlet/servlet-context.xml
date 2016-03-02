@@ -94,6 +94,15 @@
 		<beans:property name="contactoDAO" ref="contactoDAO"></beans:property>
 	</beans:bean>
 
+	<beans:bean id="divisionDAO" class="mx.edu.itslv.spring.dao.DivisionDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="divisionService"
+		class="mx.edu.itslv.spring.service.DivisionServiceImpl">
+		<beans:property name="divisionDAO" ref="divisionDAO"></beans:property>
+	</beans:bean>
+
 	<context:component-scan base-package="mx.edu.itslv.spring" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

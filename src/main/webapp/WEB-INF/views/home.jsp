@@ -15,5 +15,6 @@
 <a href="servicios">Servicios</a><br/>
 <a href="areas">Áreas</a><br/>
 <a href="contactos">Contactos</a><br/>
+<a href="divisiones">Divisiones</a><br/>
 </body>
 </html>
