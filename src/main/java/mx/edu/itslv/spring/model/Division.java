@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "divisiones")
 public class Division {
@@ -26,6 +28,7 @@ public class Division {
 	private Date fecha_registro;
 	private Date fecha_modificacion;
 	private boolean activo;
+	@JsonIgnore
 	@OneToMany(mappedBy = "division_id", cascade = CascadeType.ALL)
 	private List<Carrera> carreras;
 
