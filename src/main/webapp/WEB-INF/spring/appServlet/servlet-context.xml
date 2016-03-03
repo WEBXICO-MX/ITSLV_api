@@ -103,6 +103,15 @@
 		<beans:property name="divisionDAO" ref="divisionDAO"></beans:property>
 	</beans:bean>
 
+	<beans:bean id="carreraDAO" class="mx.edu.itslv.spring.dao.CarreraDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="carreraService"
+		class="mx.edu.itslv.spring.service.CarreraServiceImpl">
+		<beans:property name="carreraDAO" ref="carreraDAO"></beans:property>
+	</beans:bean>
+
 	<context:component-scan base-package="mx.edu.itslv.spring" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

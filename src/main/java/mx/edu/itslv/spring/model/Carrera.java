@@ -6,36 +6,36 @@
 package mx.edu.itslv.spring.model;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "divisiones")
-public class Division {
+@Table(name = "carreras")
+public class Carrera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	@ManyToOne
+	@JoinColumn(name="division_id")
+	private Division division_id;
 	private Date fecha_registro;
 	private Date fecha_modificacion;
 	private boolean activo;
-	@OneToMany(mappedBy = "division_id", cascade = CascadeType.ALL)
-	private List<Carrera> carreras;
 
-	public Division() {
+	public Carrera() {
 		this.id = 0;
 		this.nombre = "";
+		this.division_id = null;
 		this.fecha_registro = null;
 		this.fecha_modificacion = null;
 		this.activo = true;
-		this.carreras = null;
 	}
 
 	public int getId() {
@@ -52,6 +52,14 @@ public class Division {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Division getDivision_id() {
+		return division_id;
+	}
+
+	public void setDivision_id(Division division_id) {
+		this.division_id = division_id;
 	}
 
 	public Date getFecha_registro() {
@@ -78,18 +86,10 @@ public class Division {
 		this.activo = activo;
 	}
 
-	public List<Carrera> getCarreras() {
-		return carreras;
-	}
-
-	public void setCarreras(List<Carrera> carreras) {
-		this.carreras = carreras;
-	}
-
 	@Override
 	public String toString() {
-		return "Division [id=" + id + ", nombre=" + nombre + ", fecha_registro=" + fecha_registro
-				+ ", fecha_modificacion=" + fecha_modificacion + ", activo=" + activo + "]";
+		return "Carrera [id=" + id + ", nombre=" + nombre + ", division_id=" + division_id + ", fecha_registro="
+				+ fecha_registro + ", fecha_modificacion=" + fecha_modificacion + ", activo=" + activo + "]";
 	}
 
 }

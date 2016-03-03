@@ -10,11 +10,12 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="actividadesuniversitarias">Actividades Universitarias</a><br/>
-<a href="usuarios">Usuarios</a><br/>
-<a href="servicios">Servicios</a><br/>
-<a href="areas">Áreas</a><br/>
-<a href="contactos">Contactos</a><br/>
-<a href="divisiones">Divisiones</a><br/>
+<a href="<c:url value='/actividadesuniversitarias' />">Actividades Universitarias</a><br/>
+<a href="<c:url value='/usuarios' />">Usuarios</a><br/>
+<a href="<c:url value='/servicios' />">Servicios</a><br/>
+<a href="<c:url value='/areas' />">Áreas</a><br/>
+<a href="<c:url value='/contactos' />">Contactos</a><br/>
+<a href="<c:url value='/divisiones' />">Divisiones</a><br/>
+<a href="<c:url value='/carreras' />">Carreras</a><br/>
 </body>
 </html>
