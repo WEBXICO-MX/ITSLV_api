@@ -18,5 +18,6 @@
 <a href="<c:url value='/divisiones' />">Divisiones</a><br/>
 <a href="<c:url value='/carreras' />">Carreras</a><br/>
 <a href="<c:url value='/materias' />">Materias</a><br/>
+<a href="<c:url value='/directorios' />">Directorio</a><br/>
 </body>
 </html>

@@ -121,6 +121,15 @@
 		<beans:property name="materiaDAO" ref="materiaDAO"></beans:property>
 	</beans:bean>
 
+	<beans:bean id="directorioDAO" class="mx.edu.itslv.spring.dao.DirectorioDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="directorioService"
+		class="mx.edu.itslv.spring.service.DirectorioServiceImpl">
+		<beans:property name="directorioDAO" ref="directorioDAO"></beans:property>
+	</beans:bean>
+
 	<context:component-scan base-package="mx.edu.itslv.spring" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

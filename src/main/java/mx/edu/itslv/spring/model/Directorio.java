@@ -6,39 +6,44 @@
 package mx.edu.itslv.spring.model;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-@Table(name = "areas")
-public class Area {
+@Table(name = "directorio")
+public class Directorio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@ManyToOne
+	@JoinColumn(name="area_id")
+	private Area area_id;
 	private String nombre;
+	private String puesto;
+	private String tel;
+	private String email;
+	private String img;
 	private Date fecha_registro;
 	private Date fecha_modificacion;
 	private boolean activo;
-	@JsonIgnore
-	@OneToMany(mappedBy = "area_id", cascade = CascadeType.ALL)
-	private List<Directorio> directorios;
 
-	public Area() {
+	public Directorio() {
 		this.id = 0;
+		this.area_id = null;
 		this.nombre = "";
+		this.puesto = "";
+		this.tel = "";
+		this.email = "";
+		this.img = "";
 		this.fecha_registro = null;
 		this.fecha_modificacion = null;
 		this.activo = true;
-		this.directorios = null;
 	}
 
 	public int getId() {
@@ -49,12 +54,52 @@ public class Area {
 		this.id = id;
 	}
 
+	public Area getArea_id() {
+		return area_id;
+	}
+
+	public void setArea_id(Area area_id) {
+		this.area_id = area_id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getPuesto() {
+		return puesto;
+	}
+
+	public void setPuesto(String puesto) {
+		this.puesto = puesto;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public Date getFecha_registro() {
@@ -81,18 +126,11 @@ public class Area {
 		this.activo = activo;
 	}
 
-	public List<Directorio> getDirectorios() {
-		return directorios;
-	}
-
-	public void setDirectorios(List<Directorio> directorios) {
-		this.directorios = directorios;
-	}
-
 	@Override
 	public String toString() {
-		return "Area [id=" + id + ", nombre=" + nombre + ", fecha_registro=" + fecha_registro + ", fecha_modificacion="
-				+ fecha_modificacion + ", activo=" + activo + "]";
+		return "Directorio [id=" + id + ", area_id=" + area_id + ", nombre=" + nombre + ", puesto=" + puesto + ", tel="
+				+ tel + ", email=" + email + ", img=" + img + ", fecha_registro=" + fecha_registro
+				+ ", fecha_modificacion=" + fecha_modificacion + ", activo=" + activo + "]";
 	}
 
 }
