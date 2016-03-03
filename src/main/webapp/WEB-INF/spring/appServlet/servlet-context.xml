@@ -112,6 +112,15 @@
 		<beans:property name="carreraDAO" ref="carreraDAO"></beans:property>
 	</beans:bean>
 
+	<beans:bean id="materiaDAO" class="mx.edu.itslv.spring.dao.MateriaDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="materiaService"
+		class="mx.edu.itslv.spring.service.MateriaServiceImpl">
+		<beans:property name="materiaDAO" ref="materiaDAO"></beans:property>
+	</beans:bean>
+
 	<context:component-scan base-package="mx.edu.itslv.spring" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

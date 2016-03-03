@@ -6,45 +6,38 @@
 package mx.edu.itslv.spring.model;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-@Table(name = "carreras")
-public class Carrera {
+@Table(name = "materias")
+public class Materia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	private int grado;
 	@ManyToOne
-	@JoinColumn(name = "division_id")
-	private Division division_id;
+	@JoinColumn(name="carrera_id")
+	private Carrera carrera_id;
 	private Date fecha_registro;
 	private Date fecha_modificacion;
 	private boolean activo;
-	@JsonIgnore
-	@OneToMany(mappedBy = "carrera_id", cascade = CascadeType.ALL)
-	private List<Materia> materias;
 
-	public Carrera() {
+	public Materia() {
 		this.id = 0;
 		this.nombre = "";
-		this.division_id = null;
+		this.grado = 0;
+		this.carrera_id = null;
 		this.fecha_registro = null;
 		this.fecha_modificacion = null;
 		this.activo = true;
-		this.materias = null;
 	}
 
 	public int getId() {
@@ -63,12 +56,20 @@ public class Carrera {
 		this.nombre = nombre;
 	}
 
-	public Division getDivision_id() {
-		return division_id;
+	public int getGrado() {
+		return grado;
 	}
 
-	public void setDivision_id(Division division_id) {
-		this.division_id = division_id;
+	public void setGrado(int grado) {
+		this.grado = grado;
+	}
+
+	public Carrera getCarrera_id() {
+		return carrera_id;
+	}
+
+	public void setCarrera_id(Carrera carrera_id) {
+		this.carrera_id = carrera_id;
 	}
 
 	public Date getFecha_registro() {
@@ -95,18 +96,11 @@ public class Carrera {
 		this.activo = activo;
 	}
 
-	public List<Materia> getMaterias() {
-		return materias;
-	}
-
-	public void setMaterias(List<Materia> materias) {
-		this.materias = materias;
-	}
-
 	@Override
 	public String toString() {
-		return "Carrera [id=" + id + ", nombre=" + nombre + ", division_id=" + division_id + ", fecha_registro="
-				+ fecha_registro + ", fecha_modificacion=" + fecha_modificacion + ", activo=" + activo + "]";
+		return "Materia [id=" + id + ", nombre=" + nombre + ", grado=" + grado + ", carrera_id=" + carrera_id
+				+ ", fecha_registro=" + fecha_registro + ", fecha_modificacion=" + fecha_modificacion + ", activo="
+				+ activo + "]";
 	}
 
 }
