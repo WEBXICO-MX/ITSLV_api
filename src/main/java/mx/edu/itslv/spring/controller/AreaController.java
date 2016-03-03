@@ -5,6 +5,9 @@
  */
 package mx.edu.itslv.spring.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -34,8 +37,11 @@ public class AreaController {
 	}
 
 	@RequestMapping(value = "/areas/new", method = RequestMethod.GET)
-	public String create(Model model) {
+	public String create(Model model) {		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
 		model.addAttribute("area", new Area());
+		model.addAttribute("date", date);
 		return "areas/create";
 	}
 
@@ -56,6 +62,9 @@ public class AreaController {
 
 	@RequestMapping("/areas/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
 		model.addAttribute("area", this.areaService.getAreaById(id));
 		return "areas/edit";
 	}

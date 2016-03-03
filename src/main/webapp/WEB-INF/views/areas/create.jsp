@@ -11,7 +11,7 @@
 <link href="${itslvCSS}" rel="stylesheet" />
 </head>
 <body>
-	<h1>Add a Áreas </h1>
+	<h1>Add a Áreas</h1>
 
 	<c:url var="addAction" value="/areas/create"></c:url>
 
@@ -33,16 +33,9 @@
 				<td><form:input path="nombre"  size="30" maxlength="50"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="fecha_registro">
-						<spring:message text="Fecha de registro" />
-					</form:label></td>
-				<td><form:input path="fecha_registro" size="10" type="date"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="fecha_modificacion">
-						<spring:message text="Fecha de modificación" />
-					</form:label></td>
-				<td><form:input path="fecha_modificacion" size="10" type="date"/></td>
+				<td colspan="2">
+				   <form:hidden path="fecha_registro" size="20" value="${date}" readonly="true"/>
+				</td>
 			</tr>
 			<tr>
 				<td><form:label path="activo">

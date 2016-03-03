@@ -5,7 +5,7 @@
  */
 package mx.edu.itslv.spring.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,8 +25,8 @@ public class Area {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
-	private Date fecha_registro;
-	private Date fecha_modificacion;
+	private Timestamp fecha_registro;
+	private Timestamp fecha_modificacion;
 	private boolean activo;
 	@JsonIgnore
 	@OneToMany(mappedBy = "area_id", cascade = CascadeType.ALL)
@@ -57,19 +57,19 @@ public class Area {
 		this.nombre = nombre;
 	}
 
-	public Date getFecha_registro() {
+	public Timestamp getFecha_registro() {
 		return fecha_registro;
 	}
 
-	public void setFecha_registro(Date fecha_registro) {
+	public void setFecha_registro(Timestamp fecha_registro) {
 		this.fecha_registro = fecha_registro;
 	}
 
-	public Date getFecha_modificacion() {
+	public Timestamp getFecha_modificacion() {
 		return fecha_modificacion;
 	}
 
-	public void setFecha_modificacion(Date fecha_modificacion) {
+	public void setFecha_modificacion(Timestamp fecha_modificacion) {
 		this.fecha_modificacion = fecha_modificacion;
 	}
 
