@@ -56,13 +56,13 @@
 				<td><form:label path="fecha_registro">
 						<spring:message text="Fecha de registro" />
 					</form:label></td>
-				<td><form:input path="fecha_registro" type="date" /></td>
+				<td><form:hidden path="fecha_registro" value="${fecha_registro}"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="fecha_modificacion">
 						<spring:message text="Fecha de modificacion" />
 					</form:label></td>
-				<td><form:input path="fecha_modificacion" type="date" /></td>
+				<td><form:hidden path="fecha_modificacion" value="${date}"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="activo">

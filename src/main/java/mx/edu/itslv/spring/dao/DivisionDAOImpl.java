@@ -43,7 +43,7 @@ public class DivisionDAOImpl implements DivisionDAO {
 	@Override
 	public List<Division> listDivision() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Division> listDivision = session.createQuery("from Division").list();
+		List<Division> listDivision = session.createQuery("from Division order by id desc").list();
 		logger.info("listDivision size: " + listDivision.size());
 		return listDivision;
 	}

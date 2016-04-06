@@ -43,7 +43,7 @@ public class MateriaDAOImpl implements MateriaDAO {
 	@Override
 	public List<Materia> listMateria() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Materia> listMateria = session.createQuery("from Materia").list();
+		List<Materia> listMateria = session.createQuery("from Materia order by id desc").list();
 		logger.info("listMateria size: " + listMateria.size());
 		return listMateria;
 	}

@@ -1,0 +1,23 @@
+{
+  "name": "ITSLV_api",
+  "homepage": "https://github.com/WEBXICO-MX/ITSLV_api",
+  "authors": [
+    "WEBXICO-MX <weiss.uttab@gmail.com>"
+  ],
+  "description": "Aplicación web y API desarrollada con Spring 4 & Hibernate 5 para el Instituto Tecnológico  Superior de Villa la Venta (ITSLV)",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "^1.11.4",
+    "bootstrap": "^3.3.6",
+    "jqueryui-timepicker-addon": "^1.6.1"
+  }
+}
