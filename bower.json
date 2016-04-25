@@ -18,6 +18,7 @@
   "dependencies": {
     "jquery-ui": "^1.11.4",
     "bootstrap": "^3.3.6",
-    "jqueryui-timepicker-addon": "^1.6.1"
+    "jqueryui-timepicker-addon": "^1.6.1",
+    "jquery-jsonp": "https://github.com/jaubourg/jquery-jsonp.git#^2.4.0"
   }
 }

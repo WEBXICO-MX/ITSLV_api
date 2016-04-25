@@ -6,6 +6,7 @@
 package mx.edu.itslv.spring.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "actividades_universitarias")
 public class ActividadUniversitaria {
@@ -23,10 +27,9 @@ public class ActividadUniversitaria {
 	private String texto_previo;
 	private String texto_completo;
 	private String img;
-	private String link;
-	private Date fecha_registro;
 	private Date fecha_realizacion;
-	private Date fecha_modificacion;
+	private Timestamp fecha_registro;
+	private Timestamp fecha_modificacion;
 	private boolean activo;
 
 	public ActividadUniversitaria() {
@@ -35,7 +38,6 @@ public class ActividadUniversitaria {
 		this.texto_previo = "";
 		this.texto_completo = "";
 		this.img = "";
-		this.link = "";
 		this.fecha_registro = null;
 		this.fecha_realizacion = null;
 		this.fecha_modificacion = null;
@@ -82,19 +84,11 @@ public class ActividadUniversitaria {
 		this.img = img;
 	}
 
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	public Date getFecha_registro() {
+	public Timestamp getFecha_registro() {
 		return fecha_registro;
 	}
 
-	public void setFecha_registro(Date fecha_registro) {
+	public void setFecha_registro(Timestamp fecha_registro) {
 		this.fecha_registro = fecha_registro;
 	}
 
@@ -106,11 +100,11 @@ public class ActividadUniversitaria {
 		this.fecha_realizacion = fecha_realizacion;
 	}
 
-	public Date getFecha_modificacion() {
+	public Timestamp getFecha_modificacion() {
 		return this.fecha_modificacion;
 	}
 
-	public void setFecha_modificacion(Date fecha_modificacion) {
+	public void setFecha_modificacion(Timestamp fecha_modificacion) {
 		this.fecha_modificacion = fecha_modificacion;
 	}
 
@@ -125,9 +119,9 @@ public class ActividadUniversitaria {
 	@Override
 	public String toString() {
 		return "ActividadUniversitaria [id=" + id + ", nombre=" + nombre + ", texto_previo=" + texto_previo
-				+ ", texto_completo=" + texto_completo + ", img=" + img + ", link=" + link + ", fecha_registro="
-				+ fecha_registro + ", fecha_realizacion=" + fecha_realizacion + ", fecha_modificacion="
-				+ fecha_modificacion + ", activo=" + activo + "]";
+				+ ", texto_completo=" + texto_completo + ", img=" + img + ", fecha_registro=" + fecha_registro
+				+ ", fecha_realizacion=" + fecha_realizacion + ", fecha_modificacion=" + fecha_modificacion
+				+ ", activo=" + activo + "]";
 	}
 
 }
