@@ -53,6 +53,30 @@
 					</form:select></td>
 			</tr>
 			<tr>
+				<td><form:label path="informacion_extra">
+						<spring:message text="Información adicional:" />
+					</form:label></td>
+				<td><form:textarea path="informacion_extra" cols="100" rows="25" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="icono">
+						<spring:message text="Icono:" />
+					</form:label></td>
+				<td><form:input path="icono" size="50" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="img">
+						<spring:message text="IMG:" />
+					</form:label></td>
+				<td><form:input path="img" size="50" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="url">
+						<spring:message text="URL:" />
+					</form:label></td>
+				<td><form:input path="url" size="50" maxlength="100" /></td>
+			</tr>
+			<tr>
 				<td><form:label path="fecha_registro">
 						<spring:message text="Fecha de registro" />
 					</form:label></td>

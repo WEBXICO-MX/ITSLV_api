@@ -27,7 +27,6 @@
 				<th>División</th>
 				<th>Fecha de registro</th>
 				<th>Fecha de modificación</th>
-				<th>División</th>
 				<th>Activo</th>
 				<th colspan="2">Operaciones</th>
 			</tr>
