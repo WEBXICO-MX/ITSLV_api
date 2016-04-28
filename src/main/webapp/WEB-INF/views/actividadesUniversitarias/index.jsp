@@ -26,8 +26,8 @@
 				<th>Nombre</th>
 				<!--  <th>Texto previo</th>
 				<th>Texto completo</th>
-				<th>Imagen</th>
-				<th>Link</th>-->
+				<th>Imagen</th>-->
+				<th>Link</th>
 				<th>Fecha de registro</th>
 				<th>Fecha de realizacion</th>
 				<th>Fecha de modificacion</th>
@@ -38,6 +38,7 @@
 				<tr>
 					<td>${actividadUniversitaria.id}</td>
 					<td>${actividadUniversitaria.nombre}</td>
+					<td>${actividadUniversitaria.link}</td>
 					<td>${actividadUniversitaria.fecha_registro}</td>
 					<td>${actividadUniversitaria.fecha_realizacion}</td>
 					<td>${actividadUniversitaria.fecha_modificacion}</td>

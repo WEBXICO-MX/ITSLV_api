@@ -54,6 +54,12 @@
 				<td><form:textarea path="texto_completo" cols="100" rows="25" /></td>
 			</tr>
 			<tr>
+				<td><form:label path="link">
+						<spring:message text="Link:" />
+					</form:label></td>
+				<td><form:input path="link" size="100" maxlength="200" /></td>
+			</tr>
+			<tr>
 				<td><form:label path="img">
 						<spring:message text="URL Imagen" />
 					</form:label></td>

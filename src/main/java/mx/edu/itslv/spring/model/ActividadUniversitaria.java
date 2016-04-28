@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 @Table(name = "actividades_universitarias")
 public class ActividadUniversitaria {
@@ -26,6 +26,7 @@ public class ActividadUniversitaria {
 	private String nombre;
 	private String texto_previo;
 	private String texto_completo;
+	private String link;
 	private String img;
 	private Date fecha_realizacion;
 	private Timestamp fecha_registro;
@@ -37,6 +38,7 @@ public class ActividadUniversitaria {
 		this.nombre = "";
 		this.texto_previo = "";
 		this.texto_completo = "";
+		this.link = "";
 		this.img = "";
 		this.fecha_registro = null;
 		this.fecha_realizacion = null;
@@ -74,6 +76,14 @@ public class ActividadUniversitaria {
 
 	public void setTexto_completo(String texto_completo) {
 		this.texto_completo = texto_completo;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	public String getImg() {
@@ -119,9 +129,9 @@ public class ActividadUniversitaria {
 	@Override
 	public String toString() {
 		return "ActividadUniversitaria [id=" + id + ", nombre=" + nombre + ", texto_previo=" + texto_previo
-				+ ", texto_completo=" + texto_completo + ", img=" + img + ", fecha_registro=" + fecha_registro
-				+ ", fecha_realizacion=" + fecha_realizacion + ", fecha_modificacion=" + fecha_modificacion
-				+ ", activo=" + activo + "]";
+				+ ", texto_completo=" + texto_completo + ", link=" + link + ", img=" + img + ", fecha_realizacion="
+				+ fecha_realizacion + ", fecha_registro=" + fecha_registro + ", fecha_modificacion="
+				+ fecha_modificacion + ", activo=" + activo + "]";
 	}
 
 }
