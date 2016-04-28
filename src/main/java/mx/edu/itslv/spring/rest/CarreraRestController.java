@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import mx.edu.itslv.spring.model.ActividadUniversitaria;
 import mx.edu.itslv.spring.model.Carrera;
 import mx.edu.itslv.spring.service.CarreraService;
 
@@ -35,5 +38,12 @@ public class CarreraRestController {
 			return new ResponseEntity<List<Carrera>>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Carrera>>(listCarrera, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/rest/carreras/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public Carrera carreraById(@PathVariable("id") int id) {
+		Carrera c = carreraService.getCarreraById(id);
+		return c;
 	}
 }
