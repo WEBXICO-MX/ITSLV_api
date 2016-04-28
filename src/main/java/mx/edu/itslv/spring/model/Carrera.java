@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 @Table(name = "carreras")
 public class Carrera {
@@ -32,6 +32,10 @@ public class Carrera {
 	@ManyToOne
 	@JoinColumn(name = "division_id")
 	private Division division_id;
+	private String icono;
+	private String img;
+	private String url;
+	private String informacion_extra;
 	private Timestamp fecha_registro;
 	private Timestamp fecha_modificacion;
 	private boolean activo;
@@ -43,6 +47,10 @@ public class Carrera {
 		this.id = 0;
 		this.nombre = "";
 		this.division_id = null;
+		this.icono = "";
+		this.img = "";
+		this.url = "";
+		this.informacion_extra = "";
 		this.fecha_registro = null;
 		this.fecha_modificacion = null;
 		this.activo = true;
@@ -71,6 +79,38 @@ public class Carrera {
 
 	public void setDivision_id(Division division_id) {
 		this.division_id = division_id;
+	}
+
+	public String getIcono() {
+		return icono;
+	}
+
+	public void setIcono(String icono) {
+		this.icono = icono;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getInformacion_extra() {
+		return informacion_extra;
+	}
+
+	public void setInformacion_extra(String informacion_extra) {
+		this.informacion_extra = informacion_extra;
 	}
 
 	public Timestamp getFecha_registro() {
@@ -107,7 +147,8 @@ public class Carrera {
 
 	@Override
 	public String toString() {
-		return "Carrera [id=" + id + ", nombre=" + nombre + ", division_id=" + division_id + ", fecha_registro="
+		return "Carrera [id=" + id + ", nombre=" + nombre + ", division_id=" + division_id + ", icono=" + icono
+				+ ", img=" + img + ", url=" + url + ", informacion_extra=" + informacion_extra + ", fecha_registro="
 				+ fecha_registro + ", fecha_modificacion=" + fecha_modificacion + ", activo=" + activo + "]";
 	}
 
