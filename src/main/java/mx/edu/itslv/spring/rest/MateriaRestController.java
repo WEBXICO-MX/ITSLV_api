@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import mx.edu.itslv.spring.model.ActividadUniversitaria;
 import mx.edu.itslv.spring.model.Materia;
 import mx.edu.itslv.spring.service.MateriaService;
 
@@ -37,4 +40,13 @@ public class MateriaRestController {
 		return new ResponseEntity<List<Materia>>(listMateria, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/rest/materias/{carrera}/{semestre}", method = RequestMethod.GET)
+	public ResponseEntity<List<Materia>> listAllMateriaByCarreraSemestre(@PathVariable("carrera") int carrera,
+			@PathVariable("semestre") int semestre) {
+		List<Materia> listMateria = materiaService.listMateriaByCarreraSemestre(carrera, semestre);
+		if (listMateria.isEmpty()) {
+			return new ResponseEntity<List<Materia>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Materia>>(listMateria, HttpStatus.OK);
+	}
 }
