@@ -32,8 +32,7 @@ public class ActividadUniversitariaRestController {
 
 	@RequestMapping(value = "/rest/actividadesuniversitarias", method = RequestMethod.GET)
 	public ResponseEntity<List<ActividadUniversitaria>> listAllActividadUniversitaria() {
-		List<ActividadUniversitaria> listActividadUniversitaria = actividadUniversitariaService
-				.listActividadUniversitaria();
+		List<ActividadUniversitaria> listActividadUniversitaria = actividadUniversitariaService.listActividadUniversitariaByActivo(true);
 		if (listActividadUniversitaria.isEmpty()) {
 			return new ResponseEntity<List<ActividadUniversitaria>>(HttpStatus.NO_CONTENT);
 		}

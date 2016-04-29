@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -43,7 +44,18 @@ public class ActividadUniversitariaDAOImpl implements ActividadUniversitariaDAO 
 	@Override
 	public List<ActividadUniversitaria> listActividadUniversitaria() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<ActividadUniversitaria> listActividadUniversitaria = session.createQuery("from ActividadUniversitaria").list();
+		List<ActividadUniversitaria> listActividadUniversitaria = session.createQuery("from ActividadUniversitaria order by id desc").list();
+		logger.info("listActividadUniversitaria size: " + listActividadUniversitaria.size());
+		return listActividadUniversitaria;
+	}
+
+	@Override
+	public List<ActividadUniversitaria> listActividadUniversitariaByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String query = "from ActividadUniversitaria where activo = :activo order by id desc";
+		Query q = session.createQuery(query);
+		q.setBoolean("activo", activo);
+		List<ActividadUniversitaria> listActividadUniversitaria = q.list();
 		logger.info("listActividadUniversitaria size: " + listActividadUniversitaria.size());
 		return listActividadUniversitaria;
 	}

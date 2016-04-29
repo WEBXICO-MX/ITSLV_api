@@ -44,6 +44,13 @@ public class ActividadUniversitariaServiceImpl implements ActividadUniversitaria
 
 	@Override
 	@Transactional
+	public List<ActividadUniversitaria> listActividadUniversitariaByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.actividadUniversitariaDAO.listActividadUniversitariaByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public ActividadUniversitaria getActividadUniversitariaById(int id) {
 		// TODO Auto-generated method stub
 		return this.actividadUniversitariaDAO.getActividadUniversitariaById(id);

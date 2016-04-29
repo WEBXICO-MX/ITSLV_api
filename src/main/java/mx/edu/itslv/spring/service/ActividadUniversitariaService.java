@@ -15,6 +15,8 @@ public interface ActividadUniversitariaService {
 	public void updateActividadUniversitaria(ActividadUniversitaria a);
 
 	public List<ActividadUniversitaria> listActividadUniversitaria();
+	
+	public List<ActividadUniversitaria> listActividadUniversitariaByActivo(boolean activo);
 
 	public ActividadUniversitaria getActividadUniversitariaById(int id);
 
