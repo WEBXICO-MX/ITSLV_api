@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -45,6 +46,17 @@ public class MateriaDAOImpl implements MateriaDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Materia> listMateria = session.createQuery("from Materia order by id desc").list();
 		logger.info("listMateria size: " + listMateria.size());
+		return listMateria;
+	}
+
+	@Override
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Materia where carrera_id.id = :carrera_id and grado = :grado";
+		Query q = session.createQuery(sql);
+		q.setInteger("status_id", carrera);
+		q.setInteger("grado", semestre);
+		List<Materia> listMateria = q.list();
 		return listMateria;
 	}
 
