@@ -16,6 +16,8 @@ public interface MateriaDAO {
 
 	public List<Materia> listMateria();
 
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre);
+
 	public Materia getMateriaById(int id);
 
 	public void removeMateria(int id);
