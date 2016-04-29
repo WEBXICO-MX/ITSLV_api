@@ -15,6 +15,8 @@ public interface MateriaService {
 	public void updateMateria(Materia m);
 
 	public List<Materia> listMateria();
+	
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre);
 
 	public Materia getMateriaById(int id);
 
