@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -26,6 +27,7 @@ public class Materia {
 	private int id;
 	private String nombre;
 	private int grado;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="carrera_id")
 	private Carrera carrera_id;
