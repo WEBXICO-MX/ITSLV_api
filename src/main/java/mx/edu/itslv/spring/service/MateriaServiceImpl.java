@@ -43,6 +43,12 @@ public class MateriaServiceImpl implements MateriaService {
 	}
 
 	@Override
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre) {
+		// TODO Auto-generated method stub
+		return this.materiaDAO.listMateriaByCarreraSemestre(carrera, semestre);
+	}
+
+	@Override
 	@Transactional
 	public Materia getMateriaById(int id) {
 		// TODO Auto-generated method stub
