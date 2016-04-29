@@ -54,7 +54,7 @@ public class MateriaDAOImpl implements MateriaDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		String sql = "from Materia where carrera_id.id = :carrera_id and grado = :grado";
 		Query q = session.createQuery(sql);
-		q.setInteger("status_id", carrera);
+		q.setInteger("carrera_id", carrera);
 		q.setInteger("grado", semestre);
 		List<Materia> listMateria = q.list();
 		return listMateria;
