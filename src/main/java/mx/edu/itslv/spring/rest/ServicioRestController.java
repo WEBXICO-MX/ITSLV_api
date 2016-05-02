@@ -30,7 +30,7 @@ public class ServicioRestController {
 
 	@RequestMapping(value = "/rest/servicios", method = RequestMethod.GET)
 	public ResponseEntity<List<Servicio>> listAllServicio() {
-		List<Servicio> listServicio = servicioService.listServicio();
+		List<Servicio> listServicio = servicioService.listServicioByActivo(true);
 		if (listServicio.isEmpty()) {
 			return new ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
 		}

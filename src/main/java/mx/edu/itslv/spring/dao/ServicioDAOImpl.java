@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -44,6 +45,17 @@ public class ServicioDAOImpl implements ServicioDAO {
 	public List<Servicio> listServicio() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Servicio> listServicio = session.createQuery("from Servicio").list();
+		logger.info("listServicio size: " + listServicio.size());
+		return listServicio;
+	}
+
+	@Override
+	public List<Servicio> listServicioByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Servicio where activo = :activo";
+		Query q = session.createQuery(sql);
+		q.setBoolean("activo", activo);
+		List<Servicio> listServicio = q.list();
 		logger.info("listServicio size: " + listServicio.size());
 		return listServicio;
 	}

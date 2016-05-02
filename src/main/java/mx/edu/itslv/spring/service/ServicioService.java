@@ -16,6 +16,8 @@ public interface ServicioService {
 
 	public List<Servicio> listServicio();
 
+	public List<Servicio> listServicioByActivo(boolean activo);
+
 	public Servicio getServicioById(int id);
 
 	public void removeServicio(int id);

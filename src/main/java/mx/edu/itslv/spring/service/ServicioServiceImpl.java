@@ -43,6 +43,12 @@ public class ServicioServiceImpl implements ServicioService {
 	}
 
 	@Override
+	public List<Servicio> listServicioByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.servicioDAO.listServicioByActivo(activo);
+	}
+
+	@Override
 	@Transactional
 	public Servicio getServicioById(int id) {
 		// TODO Auto-generated method stub
