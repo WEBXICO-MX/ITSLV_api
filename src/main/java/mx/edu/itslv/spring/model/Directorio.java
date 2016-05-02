@@ -5,7 +5,7 @@
  */
 package mx.edu.itslv.spring.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,8 +32,8 @@ public class Directorio {
 	private String tel;
 	private String email;
 	private String img;
-	private Date fecha_registro;
-	private Date fecha_modificacion;
+	private Timestamp fecha_registro;
+	private Timestamp fecha_modificacion;
 	private boolean activo;
 
 	public Directorio() {
@@ -105,19 +105,19 @@ public class Directorio {
 		this.img = img;
 	}
 
-	public Date getFecha_registro() {
+	public Timestamp getFecha_registro() {
 		return fecha_registro;
 	}
 
-	public void setFecha_registro(Date fecha_registro) {
+	public void setFecha_registro(Timestamp fecha_registro) {
 		this.fecha_registro = fecha_registro;
 	}
 
-	public Date getFecha_modificacion() {
+	public Timestamp getFecha_modificacion() {
 		return fecha_modificacion;
 	}
 
-	public void setFecha_modificacion(Date fecha_modificacion) {
+	public void setFecha_modificacion(Timestamp fecha_modificacion) {
 		this.fecha_modificacion = fecha_modificacion;
 	}
 
