@@ -15,6 +15,8 @@ public interface DivisionService {
 	public void updateDivision(Division d);
 
 	public List<Division> listDivision();
+	
+	public List<Division> listDivisionByActivo(boolean activo);
 
 	public Division getDivisionById(int id);
 

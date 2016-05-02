@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -44,6 +45,17 @@ public class DivisionDAOImpl implements DivisionDAO {
 	public List<Division> listDivision() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Division> listDivision = session.createQuery("from Division order by id desc").list();
+		logger.info("listDivision size: " + listDivision.size());
+		return listDivision;
+	}
+
+	@Override
+	public List<Division> listDivisionByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Division where activo = :activo order by id desc";
+		Query q = session.createQuery(sql);
+		q.setBoolean("activo", activo);
+		List<Division> listDivision = q.list();
 		logger.info("listDivision size: " + listDivision.size());
 		return listDivision;
 	}

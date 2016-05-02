@@ -30,7 +30,7 @@ public class DivisionRestController {
 
 	@RequestMapping(value = "/rest/divisiones", method = RequestMethod.GET)
 	public ResponseEntity<List<Division>> listAllDivision() {
-		List<Division> listDivision = divisionService.listDivision();
+		List<Division> listDivision = divisionService.listDivisionByActivo(true);
 		if (listDivision.isEmpty()) {
 			return new ResponseEntity<List<Division>>(HttpStatus.NO_CONTENT);
 		}

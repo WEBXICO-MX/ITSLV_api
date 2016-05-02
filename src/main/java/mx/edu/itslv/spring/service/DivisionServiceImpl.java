@@ -44,6 +44,13 @@ public class DivisionServiceImpl implements DivisionService {
 
 	@Override
 	@Transactional
+	public List<Division> listDivisionByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.divisionDAO.listDivisionByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public Division getDivisionById(int id) {
 		// TODO Auto-generated method stub
 		return this.divisionDAO.getDivisionById(id);
