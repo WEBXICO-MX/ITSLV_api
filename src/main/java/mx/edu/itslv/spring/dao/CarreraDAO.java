@@ -15,6 +15,8 @@ public interface CarreraDAO {
 	public void updateCarrera(Carrera c);
 
 	public List<Carrera> listCarrera();
+	
+	public List<Carrera> listCarreraByActivo(boolean activo);
 
 	public Carrera getCarreraById(int id);
 

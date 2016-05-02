@@ -16,6 +16,8 @@ public interface CarreraService {
 
 	public List<Carrera> listCarrera();
 
+	public List<Carrera> listCarreraByActivo(boolean activo);
+
 	public Carrera getCarreraById(int id);
 
 	public void removeCarrera(int id);

@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import mx.edu.itslv.spring.model.Carrera;
+
 @Repository
 public class CarreraDAOImpl implements CarreraDAO {
 	private Logger logger = LoggerFactory.getLogger(CarreraDAOImpl.class);
@@ -43,6 +45,17 @@ public class CarreraDAOImpl implements CarreraDAO {
 	public List<Carrera> listCarrera() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Carrera> listCarrera = session.createQuery("from Carrera").list();
+		logger.info("listCarrera size: " + listCarrera.size());
+		return listCarrera;
+	}
+
+	@Override
+	public List<Carrera> listCarreraByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Carrera where activo = :activo";
+		Query q = session.createQuery(sql);
+		q.setBoolean("activo", activo);
+		List<Carrera> listCarrera = q.list();
 		logger.info("listCarrera size: " + listCarrera.size());
 		return listCarrera;
 	}

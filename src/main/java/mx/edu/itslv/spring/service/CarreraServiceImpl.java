@@ -44,6 +44,13 @@ public class CarreraServiceImpl implements CarreraService {
 
 	@Override
 	@Transactional
+	public List<Carrera> listCarreraByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.carreraDAO.listCarreraByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public Carrera getCarreraById(int id) {
 		// TODO Auto-generated method stub
 		return this.carreraDAO.getCarreraById(id);

@@ -33,7 +33,7 @@ public class CarreraRestController {
 
 	@RequestMapping(value = "/rest/carreras", method = RequestMethod.GET)
 	public ResponseEntity<List<Carrera>> listAllCarrera() {
-		List<Carrera> listCarrera = carreraService.listCarrera();
+		List<Carrera> listCarrera = carreraService.listCarreraByActivo(true);
 		if (listCarrera.isEmpty()) {
 			return new ResponseEntity<List<Carrera>>(HttpStatus.NO_CONTENT);
 		}
