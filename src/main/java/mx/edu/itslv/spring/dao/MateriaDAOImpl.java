@@ -50,12 +50,13 @@ public class MateriaDAOImpl implements MateriaDAO {
 	}
 
 	@Override
-	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre) {
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre, boolean activo) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String sql = "from Materia where carrera_id.id = :carrera_id and grado = :grado";
+		String sql = "from Materia where carrera_id.id = :carrera_id and grado = :grado and activo = :activo";
 		Query q = session.createQuery(sql);
 		q.setInteger("carrera_id", carrera);
 		q.setInteger("grado", semestre);
+		q.setBoolean("activo", activo);
 		List<Materia> listMateria = q.list();
 		return listMateria;
 	}

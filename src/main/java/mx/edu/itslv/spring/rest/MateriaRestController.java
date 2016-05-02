@@ -43,7 +43,7 @@ public class MateriaRestController {
 	@RequestMapping(value = "/rest/materias/{carrera}/{semestre}", method = RequestMethod.GET)
 	public ResponseEntity<List<Materia>> listAllMateriaByCarreraSemestre(@PathVariable("carrera") int carrera,
 			@PathVariable("semestre") int semestre) {
-		List<Materia> listMateria = materiaService.listMateriaByCarreraSemestre(carrera, semestre);
+		List<Materia> listMateria = materiaService.listMateriaByCarreraSemestre(carrera, semestre,true);
 		if (listMateria.isEmpty()) {
 			return new ResponseEntity<List<Materia>>(HttpStatus.NO_CONTENT);
 		}

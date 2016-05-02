@@ -16,7 +16,7 @@ public interface MateriaService {
 
 	public List<Materia> listMateria();
 	
-	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre);
+	public List<Materia> listMateriaByCarreraSemestre(int carrera, int semestre, boolean activo);
 
 	public Materia getMateriaById(int id);
 
