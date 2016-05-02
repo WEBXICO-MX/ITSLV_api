@@ -20,11 +20,10 @@
 		<a href="<c:url value='/' />">Back</a>
 	</h5>
 	<c:if test="${!empty listContacto}">
-		<table class="table tg">
+		<table class="tg">
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
-				<th>Contenido</th>
 				<th>Fecha de registro</th>
 				<th>Fecha de modificacion</th>
 				<th>Activo</th>
@@ -34,7 +33,6 @@
 				<tr>
 					<td>${contacto.id}</td>
 					<td>${contacto.nombre}</td>
-					<td>${contacto.contenido}</td>
 					<td>${contacto.fecha_registro}</td>
 					<td>${contacto.fecha_modificacion}</td>
 					<td><c:choose>
