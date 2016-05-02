@@ -30,7 +30,7 @@ public class AreaRestController {
 
 	@RequestMapping(value = "/rest/areas", method = RequestMethod.GET)
 	public ResponseEntity<List<Area>> listAllArea() {
-		List<Area> listArea = areaService.listArea();
+		List<Area> listArea = areaService.listAreaByActivo(true);
 		if (listArea.isEmpty()) {
 			return new ResponseEntity<List<Area>>(HttpStatus.NO_CONTENT);
 		}

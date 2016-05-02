@@ -44,6 +44,13 @@ public class AreaServiceImpl implements AreaService {
 
 	@Override
 	@Transactional
+	public List<Area> listAreaByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.areaDAO.listAreaByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public Area getAreaById(int id) {
 		// TODO Auto-generated method stub
 		return this.areaDAO.getAreaById(id);

@@ -16,6 +16,8 @@ public interface AreaDAO {
 	public void updateArea(Area a);
 
 	public List<Area> listArea();
+	
+	public List<Area> listAreaByActivo(boolean activo);
 
 	public Area getAreaById(int id);
 

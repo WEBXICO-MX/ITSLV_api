@@ -49,6 +49,12 @@ public class AreaDAOImpl implements AreaDAO {
 	}
 
 	@Override
+	public List<Area> listAreaByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public Area getAreaById(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Area a = (Area) session.load(Area.class, new Integer(id));
