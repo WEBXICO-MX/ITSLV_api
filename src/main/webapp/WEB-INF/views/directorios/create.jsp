@@ -69,16 +69,9 @@
 				<td><form:input path="img" size="35" maxlength="100" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="fecha_registro">
-						<spring:message text="Fecha de registro" />
-					</form:label></td>
-				<td><form:input path="fecha_registro" type="date" size="10"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="fecha_modificacion">
-						<spring:message text="Fecha de modificacion" />
-					</form:label></td>
-				<td><form:input path="fecha_modificacion" type="date" size="10"/></td>
+				<td colspan="2">
+				   <form:hidden path="fecha_registro" size="20" value="${date}" readonly="true"/>
+				</td>
 			</tr>
 			<tr>
 				<td><form:label path="activo">
