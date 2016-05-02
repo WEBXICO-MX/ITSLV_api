@@ -16,6 +16,8 @@ public interface ContactoDAO {
 
 	public List<Contacto> listContacto();
 
+	public List<Contacto> listContactoByActivo(boolean activo);
+
 	public Contacto getContactoById(int id);
 
 	public void removeContacto(int id);

@@ -44,6 +44,13 @@ public class ContactoServiceImpl implements ContactoService {
 
 	@Override
 	@Transactional
+	public List<Contacto> listContactoByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.contactoDAO.listContactoByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public Contacto getContactoById(int id) {
 		// TODO Auto-generated method stub
 		return this.contactoDAO.getContactoById(id);

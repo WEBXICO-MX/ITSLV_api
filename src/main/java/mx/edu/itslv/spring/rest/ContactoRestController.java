@@ -30,7 +30,7 @@ public class ContactoRestController {
 
 	@RequestMapping(value = "/rest/contactos", method = RequestMethod.GET)
 	public ResponseEntity<List<Contacto>> listAllContacto() {
-		List<Contacto> listContacto = contactoService.listContacto();
+		List<Contacto> listContacto = contactoService.listContactoByActivo(true);
 		if (listContacto.isEmpty()) {
 			return new ResponseEntity<List<Contacto>>(HttpStatus.NO_CONTENT);
 		}

@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -36,7 +37,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 	public void updateContacto(Contacto c) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(c);
-		logger.info("Contacto Updated, Contacto Detalle" +c);
+		logger.info("Contacto Updated, Contacto Detalle" + c);
 
 	}
 
@@ -44,6 +45,17 @@ public class ContactoDAOImpl implements ContactoDAO {
 	public List<Contacto> listContacto() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Contacto> listContacto = session.createQuery("from Contacto").list();
+		logger.info("listContacto size: " + listContacto.size());
+		return listContacto;
+	}
+
+	@Override
+	public List<Contacto> listContactoByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Contacto where activo = :activo";
+		Query q = session.createQuery(sql);
+		q.setBoolean("activo", activo);
+		List<Contacto> listContacto = q.list();
 		logger.info("listContacto size: " + listContacto.size());
 		return listContacto;
 	}
