@@ -30,7 +30,7 @@
 				<td><form:label path="nombre">
 						<spring:message text="Nombre" />
 					</form:label></td>
-				<td><form:input path="nombre"  size="30" maxlength="50"/></td>
+				<td><form:input path="nombre"  size="50" maxlength="50"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
