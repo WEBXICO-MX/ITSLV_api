@@ -30,7 +30,7 @@ public class DirectorioRestController {
 
 	@RequestMapping(value = "/rest/directorios", method = RequestMethod.GET)
 	public ResponseEntity<List<Directorio>> listAllDirectorio() {
-		List<Directorio> listDirectorio = directorioService.listDirectorio();
+		List<Directorio> listDirectorio = directorioService.listDirectorioByActivo(true);
 		if (listDirectorio.isEmpty()) {
 			return new ResponseEntity<List<Directorio>>(HttpStatus.NO_CONTENT);
 		}

@@ -44,6 +44,13 @@ public class DirectorioServiceImpl implements DirectorioService {
 
 	@Override
 	@Transactional
+	public List<Directorio> listDirectorioByActivo(boolean activo) {
+		// TODO Auto-generated method stub
+		return this.directorioDAO.listDirectorioByActivo(activo);
+	}
+
+	@Override
+	@Transactional
 	public Directorio getDirectorioById(int id) {
 		// TODO Auto-generated method stub
 		return this.directorioDAO.getDirectorioById(id);

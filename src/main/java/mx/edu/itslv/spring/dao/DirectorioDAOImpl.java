@@ -7,6 +7,7 @@ package mx.edu.itslv.spring.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -44,6 +45,17 @@ public class DirectorioDAOImpl implements DirectorioDAO {
 	public List<Directorio> listDirectorio() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Directorio> listDirectorio = session.createQuery("from Directorio").list();
+		logger.info("listDirectorio size: " + listDirectorio.size());
+		return listDirectorio;
+	}
+
+	@Override
+	public List<Directorio> listDirectorioByActivo(boolean activo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Directorio where activo = :activo";
+		Query q = session.createQuery(sql);
+		q.setBoolean("activo", activo);
+		List<Directorio> listDirectorio = q.list();
 		logger.info("listDirectorio size: " + listDirectorio.size());
 		return listDirectorio;
 	}

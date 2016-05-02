@@ -16,6 +16,8 @@ public interface DirectorioService {
 
 	public List<Directorio> listDirectorio();
 
+	public List<Directorio> listDirectorioByActivo(boolean activo);
+
 	public Directorio getDirectorioById(int id);
 
 	public void removeDirectorio(int id);
