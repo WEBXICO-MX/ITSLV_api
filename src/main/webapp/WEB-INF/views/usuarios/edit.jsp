@@ -31,7 +31,7 @@
 				<td><form:label path="nombre_completo">
 						<spring:message text="Nombre completo" />
 					</form:label></td>
-				<td><form:input path="nombre_completo" size="30" maxlength="50"/></td>
+				<td><form:input path="nombre_completo" size="50" maxlength="100"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="login">
@@ -43,19 +43,17 @@
 				<td><form:label path="password">
 						<spring:message text="Password" />
 					</form:label></td>
-				<td><form:input path="password" maxlength="15"/></td>
+				<td><form:password path="password" maxlength="15"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="fecha_registro">
-						<spring:message text="Fecha de registro" />
-					</form:label></td>
-				<td><form:input path="fecha_registro" size="10" type="date"/></td>
+				<td colspan="2">
+				   <form:hidden path="fecha_registro" />
+				</td>
 			</tr>
 			<tr>
-				<td><form:label path="fecha_modificacion">
-						<spring:message text="Fecha de modificación" />
-					</form:label></td>
-				<td><form:input path="fecha_modificacion" size="10" type="date"/></td>
+				<td colspan="2">
+				  <form:hidden path="fecha_modificacion" size="20" value="${date}" readonly="true" />
+				</td>
 			</tr>
 			<tr>
 				<td><form:label path="activo">

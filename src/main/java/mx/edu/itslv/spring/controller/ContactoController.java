@@ -62,6 +62,9 @@ public class ContactoController {
 
 	@RequestMapping("/contactos/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
 		model.addAttribute("contacto", this.contactoService.getContactoById(id));
 		return "contactos/edit";
 	}

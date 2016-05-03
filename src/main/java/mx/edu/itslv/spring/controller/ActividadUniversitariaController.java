@@ -62,8 +62,10 @@ public class ActividadUniversitariaController {
 
 	@RequestMapping("/actividadesuniversitarias/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
-		model.addAttribute("actividadUniversitaria",
-				this.actividadUniversitariaService.getActividadUniversitariaById(id));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
+		model.addAttribute("actividadUniversitaria",this.actividadUniversitariaService.getActividadUniversitariaById(id));
 		return "actividadesUniversitarias/edit";
 	}
 

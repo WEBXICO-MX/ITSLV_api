@@ -23,8 +23,8 @@
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
-				<th>Login</th>
-				<th>Password</th>
+				<th>Fecha registro</th>
+				<th>Fecha modificación</th>
 				<th>Activo</th>
 				<th colspan="2">Operaciones</th>
 			</tr>
@@ -32,8 +32,8 @@
 				<tr>
 					<td>${usuario.id}</td>
 					<td>${usuario.nombre_completo}</td>
-					<td>${usuario.login}</td>
-					<td>${usuario.password}</td>
+					<td>${usuario.fecha_registro}</td>
+					<td>${usuario.fecha_modificacion}</td>
 					<td><c:choose>
 							<c:when test="${usuario.activo}">Si</c:when>
 							<c:otherwise>No</c:otherwise>

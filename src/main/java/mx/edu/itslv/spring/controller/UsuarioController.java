@@ -5,6 +5,9 @@
  */
 package mx.edu.itslv.spring.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -35,6 +38,9 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/usuarios/new", method = RequestMethod.GET)
 	public String create(Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
 		model.addAttribute("usuario", new Usuario());
 		return "usuarios/create";
 	}
@@ -56,6 +62,9 @@ public class UsuarioController {
 
 	@RequestMapping("/usuarios/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
 		model.addAttribute("usuario", this.usuarioService.getUsuarioById(id));
 		return "usuarios/edit";
 	}
