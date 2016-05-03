@@ -12,7 +12,7 @@
 <link href="${itslvCSS}" rel="stylesheet" />
 </head>
 <body>
-	<h1>Edit a Directorio</h1>
+	<h1>Edit a Directorio ${date}</h1>
 
 	<c:url var="addAction" value="/directorios/create"></c:url>
 

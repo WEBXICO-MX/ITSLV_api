@@ -48,7 +48,8 @@ public class DirectorioController {
 	@RequestMapping(value = "/directorios/new", method = RequestMethod.GET)
 	public String create(Model model) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(new Date()); 
+		String date = sdf.format(new Date());
+		model.addAttribute("date", date);
 		model.addAttribute("directorio", new Directorio());
 		model.addAttribute("listArea", this.areaService.listArea());
 		return "directorios/create";
@@ -71,6 +72,9 @@ public class DirectorioController {
 
 	@RequestMapping("/directorios/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date()); 
+		model.addAttribute("date", date);
 		model.addAttribute("directorio", this.directorioService.getDirectorioById(id));
 		model.addAttribute("listArea", this.areaService.listArea());
 		return "directorios/edit";
