@@ -28,8 +28,8 @@
 				<th>Texto completo</th>
 				<th>Imagen</th>-->
 				<th>Link</th>
-				<th>Fecha de registro</th>
 				<th>Fecha de realizacion</th>
+				<th>Fecha de registro</th>				
 				<th>Fecha de modificacion</th>
 				<th>Activo</th>
 				<th colspan="2">Operaciones</th>
@@ -38,9 +38,16 @@
 				<tr>
 					<td>${actividadUniversitaria.id}</td>
 					<td>${actividadUniversitaria.nombre}</td>
-					<td>${actividadUniversitaria.link}</td>
-					<td>${actividadUniversitaria.fecha_registro}</td>
+					<td>
+					    <c:choose>
+							<c:when test="${actividadUniversitaria.link eq \"\"}">Sin link</c:when>
+							<c:otherwise>
+							<a href="${actividadUniversitaria.link}" target="_blank">Link</a>
+							</c:otherwise>
+						</c:choose>
+					</td>					
 					<td>${actividadUniversitaria.fecha_realizacion}</td>
+					<td>${actividadUniversitaria.fecha_registro}</td>
 					<td>${actividadUniversitaria.fecha_modificacion}</td>
 					<td><c:choose>
 							<c:when test="${actividadUniversitaria.activo}">Si</c:when>
