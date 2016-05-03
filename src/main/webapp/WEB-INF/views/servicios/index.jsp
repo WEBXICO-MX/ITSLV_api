@@ -32,12 +32,20 @@
 				<tr>
 					<td>${servicio.id}</td>
 					<td>${servicio.nombre}</td>
-					<td><img src="${servicio.img}" alt="${servicio.nombre}"/></td>
+					<td>
+					  <c:choose>
+							<c:when test="${servicio.img eq \"\"}">Sin imagen</c:when>
+							<c:otherwise>
+							  <a href="javascript:window.open('${servicio.img}','_blank','toolbar=no,scrollbars=no,resizable=no,top=500,left=500,width=200,height=200')" target="_blank">Imagen</a>
+							</c:otherwise>
+						</c:choose>
+					</td>
 					<td><a href="${servicio.link}" target="_blank">${servicio.link}</a></td>
 					<td><c:choose>
 							<c:when test="${servicio.activo}">Si</c:when>
 							<c:otherwise>No</c:otherwise>
-						</c:choose></td>
+						</c:choose>
+					</td>
 					<td><a href="<c:url value='/servicios/${servicio.id}/edit' />">Edit</a></td>
 					<td><a
 						href="<c:url value='/servicios/${servicio.id}/destroy' />">Delete</a></td>

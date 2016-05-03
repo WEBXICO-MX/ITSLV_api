@@ -43,13 +43,21 @@
 					<td>${directorio.puesto}</td>
 					<td>${directorio.tel}</td>
 					<td>${directorio.email}</td>
-					<td>${directorio.img}</td>
+					<td>
+					<c:choose>
+							<c:when test="${directorio.img eq \"\"}">Sin imagen</c:when>
+							<c:otherwise>
+							<a href="javascript:window.open('${directorio.img}','_blank','toolbar=no,scrollbars=no,resizable=no,top=500,left=500,width=200,height=200')" target="_blank">Imagen</a>
+							</c:otherwise>
+						</c:choose>
+					</td>
 					<td>${directorio.fecha_registro}</td>
 					<td>${directorio.fecha_modificacion}</td>
 					<td><c:choose>
 							<c:when test="${directorio.activo}">Si</c:when>
 							<c:otherwise>No</c:otherwise>
-						</c:choose></td>
+						</c:choose>
+					</td>
 					<td><a
 						href="<c:url value='/directorios/${directorio.id}/edit' />">Edit</a></td>
 					<td><a
