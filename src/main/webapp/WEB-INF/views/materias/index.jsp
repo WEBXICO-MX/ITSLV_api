@@ -18,7 +18,7 @@
 			<a href="<c:url value='/materias/new' />">New Materia</a>
 		</h4>
 		<h5>
-			<a href="<c:url value='/' />">Back</a>
+			<a href="<c:url value='/home' />">Back</a>
 		</h5>
 		<table class="table tg">
 			<tr>
@@ -54,7 +54,7 @@
 		<a href="<c:url value='/materias/new' />">New Materia</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 </body>
 </html>

@@ -8,6 +8,8 @@ package mx.edu.itslv.spring.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import mx.edu.itslv.spring.model.Servicio;
 import mx.edu.itslv.spring.service.ServicioService;
@@ -31,9 +34,17 @@ public class ServicioController {
 	}
 
 	@RequestMapping(value = "/servicios", method = RequestMethod.GET)
-	public String index(Model model) {
-		model.addAttribute("listServicio", this.servicioService.listServicio());
-		return "servicios/index";
+	public ModelAndView index(Model model, HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+
+		if (session.getAttribute("nombre") != null && session.getAttribute("cve_usuario") != null) {
+			model.addAttribute("listServicio", this.servicioService.listServicio());
+			modelAndView.setViewName("servicios/index");
+		} else {
+			modelAndView.setViewName("redirect:/");
+		}
+
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/servicios/new", method = RequestMethod.GET)
@@ -60,7 +71,7 @@ public class ServicioController {
 	@RequestMapping("/servicios/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(new Date()); 
+		String date = sdf.format(new Date());
 		model.addAttribute("date", date);
 		model.addAttribute("servicio", this.servicioService.getServicioById(id));
 		return "servicios/edit";

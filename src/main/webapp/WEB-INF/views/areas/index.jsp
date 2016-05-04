@@ -16,7 +16,7 @@
 		<a href="<c:url value='/areas/new' />">New Área</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 	<c:if test="${!empty listArea}">
 		<table class="table tg">
@@ -49,7 +49,7 @@
 		<a href="<c:url value='/areas/new' />">New Área</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 </body>
 </html>

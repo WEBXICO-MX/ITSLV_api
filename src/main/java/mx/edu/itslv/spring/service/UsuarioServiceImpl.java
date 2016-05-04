@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import mx.edu.itslv.spring.dao.UsuarioDAO;
 import mx.edu.itslv.spring.model.Usuario;
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioDAO usuarioDAO;
@@ -46,6 +47,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public Usuario getUsuarioById(int id) {
 		// TODO Auto-generated method stub
 		return this.usuarioDAO.getUsuarioById(id);
+	}
+
+	@Override
+	@Transactional
+	public Usuario getUsuarioByLoginPassword(String login, String password) {
+		// TODO Auto-generated method stub
+		return this.usuarioDAO.getUsuarioByLoginPassword(login, password);
 	}
 
 	@Override

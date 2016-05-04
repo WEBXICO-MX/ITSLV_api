@@ -17,7 +17,7 @@
 		<a href="<c:url value='/contactos/new' />">New Contacto</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 	<c:if test="${!empty listContacto}">
 		<table class="tg">
@@ -50,7 +50,7 @@
 		<a href="<c:url value='/contactos/new' />">New Contacto</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 </body>
 </html>

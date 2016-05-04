@@ -17,7 +17,7 @@
 		<a href="<c:url value='/actividadesuniversitarias/new' />">New Actividade Universitaria</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 	<c:if test="${!empty listActividadUniversitaria}">
 		<table class="table tg">
@@ -66,7 +66,7 @@
 		<a href="<c:url value='/actividadesuniversitarias/new' />">New Actividad Universitaria</a>
 	</h4>
 	<h5>
-		<a href="<c:url value='/' />">Back</a>
+		<a href="<c:url value='/home' />">Back</a>
 	</h5>
 </body>
 </html>

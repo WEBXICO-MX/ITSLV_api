@@ -17,6 +17,8 @@ public interface UsuarioService {
 	public List<Usuario> listUsuario();
 
 	public Usuario getUsuarioById(int id);
+	
+	public Usuario getUsuarioByLoginPassword(String login, String password);
 
 	public void removeUsuario(int id);
 

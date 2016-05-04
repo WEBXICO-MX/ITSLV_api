@@ -8,6 +8,8 @@ package mx.edu.itslv.spring.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import mx.edu.itslv.spring.model.Division;
 import mx.edu.itslv.spring.service.DivisionService;
@@ -32,9 +35,17 @@ public class DivisionController {
 	}
 
 	@RequestMapping(value = "/divisiones", method = RequestMethod.GET)
-	public String index(Model model) {
-		model.addAttribute("listDivision", this.divisionService.listDivision());
-		return "divisiones/index";
+	public ModelAndView index(Model model, HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+
+		if (session.getAttribute("nombre") != null && session.getAttribute("cve_usuario") != null) {
+			model.addAttribute("listDivision", this.divisionService.listDivision());
+			modelAndView.setViewName("divisiones/index");
+		} else {
+			modelAndView.setViewName("redirect:/");
+		}
+
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/divisiones/new", method = RequestMethod.GET)
