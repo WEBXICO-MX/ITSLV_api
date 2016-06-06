@@ -63,7 +63,7 @@
 				<td><form:label path="img">
 						<spring:message text="URL Imagen" />
 					</form:label></td>
-				<td><form:input path="img" size="25" maxlength="50" /></td>
+				<td><form:input path="img" size="100" maxlength="200" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="fecha_realizacion">
