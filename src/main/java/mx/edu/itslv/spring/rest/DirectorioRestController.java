@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import mx.edu.itslv.spring.model.ActividadUniversitaria;
 import mx.edu.itslv.spring.model.Directorio;
 import mx.edu.itslv.spring.service.DirectorioService;
 
@@ -31,6 +34,15 @@ public class DirectorioRestController {
 	@RequestMapping(value = "/rest/directorios", method = RequestMethod.GET)
 	public ResponseEntity<List<Directorio>> listAllDirectorio() {
 		List<Directorio> listDirectorio = directorioService.listDirectorioByActivo(true);
+		if (listDirectorio.isEmpty()) {
+			return new ResponseEntity<List<Directorio>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Directorio>>(listDirectorio, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/rest/directorios/areas/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Directorio>> listAllDirectorioByArea(@PathVariable("id") int area_id) {
+		List<Directorio> listDirectorio = directorioService.listDirectorioByArea(area_id);
 		if (listDirectorio.isEmpty()) {
 			return new ResponseEntity<List<Directorio>>(HttpStatus.NO_CONTENT);
 		}

@@ -15,6 +15,8 @@ public interface DirectorioDAO {
 	public void updateDirectorio(Directorio d);
 
 	public List<Directorio> listDirectorio();
+	
+	public List<Directorio> listDirectorioByArea(int area_id);
 
 	public List<Directorio> listDirectorioByActivo(boolean activo);
 

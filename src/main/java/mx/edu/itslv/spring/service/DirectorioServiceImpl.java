@@ -63,4 +63,11 @@ public class DirectorioServiceImpl implements DirectorioService {
 
 	}
 
+	@Override
+	@Transactional
+	public List<Directorio> listDirectorioByArea(int area_id) {
+		// TODO Auto-generated method stub
+		return this.directorioDAO.listDirectorioByArea(area_id);
+	}
+
 }

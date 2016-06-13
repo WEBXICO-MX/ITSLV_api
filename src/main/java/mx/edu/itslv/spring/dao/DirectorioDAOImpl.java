@@ -79,4 +79,16 @@ public class DirectorioDAOImpl implements DirectorioDAO {
 
 	}
 
+	@Override
+	public List<Directorio> listDirectorioByArea(int area_id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "from Directorio where area_id = :area_id and activo = :activo";
+		Query q = session.createQuery(sql);
+		q.setInteger("area_id", area_id);
+		q.setBoolean("activo", true);
+		List<Directorio> listDirectorio = q.list();
+		logger.info("listDirectorio size: " + listDirectorio.size());
+		return listDirectorio;
+	}
+
 }
