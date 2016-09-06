@@ -30,7 +30,7 @@
 		<beans:property name="driverClassName"
 			value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<beans:property name="url"
-			value="jdbc:sqlserver://192.168.2.19:1433;databaseName=ITSLV_api" />
+			value="jdbc:sqlserver://localhost:1433;databaseName=ITSLV_api" />
 		<beans:property name="username" value="itslv_app" />
 		<beans:property name="password" value="itslv.2016" />
 	</beans:bean>
@@ -137,6 +137,15 @@
 	<beans:bean id="calendarioEscolarService"
 		class="mx.edu.itslv.spring.service.CalendarioEscolarServiceImpl">
 		<beans:property name="calendarioEscolarDAO" ref="calendarioEscolarDAO"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="calendarioEscolarIconografiaDAO" class="mx.edu.itslv.spring.dao.CalendarioEscolarIconografiaDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="calendarioEscolarIconografiaService"
+		class="mx.edu.itslv.spring.service.CalendarioEscolarIconografiaServiceImpl">
+		<beans:property name="calendarioEscolarIconografiaDAO" ref="calendarioEscolarIconografiaDAO"></beans:property>
 	</beans:bean>
 
 	<context:component-scan base-package="mx.edu.itslv.spring" />
