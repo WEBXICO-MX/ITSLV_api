@@ -42,7 +42,7 @@ public class CalendarioEscolarDAOImpl implements CalendarioEscolarDAO {
 	@Override
 	public List<CalendarioEscolar> listCalendarioEscolar() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<CalendarioEscolar> listCalendarioEscolar = session.createQuery("from CalendarioEscolar order by id desc").list();
+		List<CalendarioEscolar> listCalendarioEscolar = session.createQuery("from CalendarioEscolar order by id asc").list();
 		logger.info("listCalendarioEscolar size: " + listCalendarioEscolar.size());
 		return listCalendarioEscolar;
 	}
@@ -50,7 +50,7 @@ public class CalendarioEscolarDAOImpl implements CalendarioEscolarDAO {
 	@Override
 	public List<CalendarioEscolar> listCalendarioEscolarByActivo(boolean activo) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String query = "from CalendarioEscolar where activo = :activo order by id desc";
+		String query = "from CalendarioEscolar where activo = :activo order by id asc";
 		Query q = session.createQuery(query);
 		q.setBoolean("activo", activo);
 		List<CalendarioEscolar> listCalendarioEscolar = q.list();
